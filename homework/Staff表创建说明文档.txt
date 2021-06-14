@@ -1,0 +1,14 @@
+创建额Staff表用于存储员工信息
+
+创建语句如下：
+create table Staff  
+(  
+id int identity(1000,1) primary key,  
+number varchar(15),  
+name varchar(15), 
+age int, 
+salaryLevel varchar(15), 
+bodyStatus varchar(15),
+address varchar(15), 
+phone varchar(15)
+)  

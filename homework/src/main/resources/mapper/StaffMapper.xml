@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该文件编写 mybatis 中的 mapper 接口里面的方法提供对应的 sql 语句 -->
+<mapper namespace="com.gx.dao.StaffMapper">
+
+<!-- 添加角色 -->
+<insert id="save" parameterType="com.gx.domain.Staff">
+INSERT INTO Staff (number, name, age , salaryLevel, bodyStatus, address, phone)
+VALUES (#{number}, #{name}, #{age}, #{salaryLevel}, #{bodyStatus}, #{address}, #{phone})
+</insert>
+
+<!-- 根据 id 修改数据 -->
+<update id="update" parameterType="com.gx.domain.Staff">
+    UPDATE Staff
+        SET
+        number = #{number} ,
+        name = #{name},
+        age = #{age},
+        salaryLevel = #{salaryLevel}, 
+        bodyStatus = #{bodyStatus},
+        address = #{address},
+        phone = #{phone}
+    WHERE
+        id = #{id}
+</update>
+
+<!-- 查询所有数据 -->
+<select id="findAll" resultType="com.gx.domain.Staff">
+SELECT id, number, name, age, salaryLevel, bodyStatus, address, phone FROM Staff
+order by id
+</select>
+
+<!-- 根据 id 查询对象 -->
+<select id="findStaffById" parameterType="int" resultType="com.gx.domain.Staff">
+select * from Staff
+where id = #{id}
+</select>
+
+<delete id="deleteOneStaff" parameterType="Integer">
+    DELETE FROM Staff
+    where id = #{id}
+</delete>
+
+<!-- 删除 -->
+<delete id="deleteManyStaffs" parameterType="Integer[]">
+    DELETE FROM Staff
+    <where>
+    id
+    <foreach collection="array" item="id" open="in (" close=")" separator=",">
+    #{id}
+    </foreach>
+    </where>
+</delete>
+
+<!-- 根据ID和姓名搜索 -->
+<select id="staffConditionalSearch" parameterType="String" resultType="com.gx.domain.Staff">
+    select * from Staff
+    where number like '%'+ #{number} + '%' and name like '%'+ #{name} + '%'
+    order by id     
+</select>
+
+</mapper>

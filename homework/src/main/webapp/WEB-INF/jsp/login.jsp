@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>登陆页面</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/css/normalize.min.css">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
