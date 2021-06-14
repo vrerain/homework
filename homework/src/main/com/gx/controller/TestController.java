@@ -37,5 +37,11 @@ public class TestController {
 		m.addAttribute("allInf", result);
 		return "test";
 	}
+	
+	@RequestMapping("/login")
+	public String login()
+	{
+		return "login";
+	}
 
 }
