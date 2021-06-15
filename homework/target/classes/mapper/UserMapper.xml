@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该文件编写 mybatis 中的 mapper 接口里面的方法提供对应的 sql 语句 -->
+<mapper namespace="com.gx.dao.UserMapper">
+
+    <select id="userLogin" parameterType="String" resultType="com.gx.domain.User">
+        select * from Users
+        where account = #{value}
+    </select>
+
+    <insert id="insertUser" parameterType="com.gx.domain.User">
+        INSERT INTO Users
+		(account, name, password, serialNumber )
+		VALUES ( #{account}, #{name}, #{password}, #{serialNumber})
+    </insert>
+
+</mapper>

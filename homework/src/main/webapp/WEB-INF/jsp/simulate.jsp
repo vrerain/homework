@@ -77,7 +77,7 @@
         <hr class="line">
     </div>
     <div class="body">
-        <form action="/insertUser" method="POST" class="form" id="form1" name="form1">
+        <form action="/uploadAttendance" method="POST" class="form" id="form1" name="form1">
             <input type="text" placeholder="员工ID" class="input" name="number" />
             <input type="text" placeholder="员工姓名" class="input" name="name" />
             <select class="input" style="width: 430px;">

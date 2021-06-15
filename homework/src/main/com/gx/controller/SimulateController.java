@@ -20,22 +20,20 @@ import com.gx.domain.*;
 
 @Controller
 @RequestMapping("/")
-public class TestController {
+public class SimulateController {
 	
 	@Autowired
 	private TestService testService;
 	
 	/*
-	*拦截/test路由，查数据，然后利用Model传递到前端
+	*拦截/simulate路由，查数据，然后利用Model传递到前端
 	* @param m 进行参数的传递
 	* @return 返回jsp页面的名称
 	*/
-	@RequestMapping("/test")
+	@RequestMapping("/simulate")
 	public String test(Model m)
 	{
-		List<Test> result = testService.findAll();
-		m.addAttribute("allInf", result);
-		return "test";
+		return "simulate";
 	}
 	
 }

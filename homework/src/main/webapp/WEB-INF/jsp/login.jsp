@@ -16,20 +16,20 @@
         <!-- Sign Up -->
         <div class="container__form container--signup">
             <form action="/insertUser" method="POST" class="form" id="form1" name="form1">
-                <h2 class="form__title">注册</h2>
-                <input type="text" placeholder="账号" class="input" name="number" />
+                <input type="text" placeholder="账号" class="input" name="account" />
+                <input type="text" placeholder="用户名称" class="input" name="name"/>
                 <input type="password" placeholder="密码" class="input" name="password" />
                 <input type="passwordagain" placeholder="确认密码" class="input" name="repassword" />
-                <input type="text" placeholder="请输入注册码" class="input" name="verify"/>
+                <input type="text" placeholder="请输入注册码" class="input" name="serialNumber"/>
                 <input class="btn" type="button" onclick="check()" value="注册" />
             </form>
         </div>
 
         <!-- Sign In -->
         <div class="container__form container--signin">
-            <form action="/findByMobile" class="form" id="form2">
+            <form action="/userLogin" method="POST" class="form" id="form2">
                 <h2 class="form__title">登陆</h2>
-                <input type="email/number" placeholder="账号" class="input" name="mobile" />
+                <input type="text" placeholder="账号" class="input" name="account" />
                 <input type="password" placeholder="密码" class="input" name="password" />
                 <button class="btn">登陆</button>
             </form>
