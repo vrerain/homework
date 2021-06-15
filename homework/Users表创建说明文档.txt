@@ -1,0 +1,10 @@
+创建Users表，用来存储用户,
+
+创建语句如下：
+create table Users
+(
+account varchar(40),
+name varchar(30),
+password varchar(40),
+serialNumber int
+)
