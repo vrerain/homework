@@ -1,11 +1,7 @@
-/*
- * SimulateController.java
- * author: vrerain
- * Date: 2021/6/15
- * explation: 控制层
-*/
 package com.gx.controller;
 
+import com.gx.service.AttendanceService;
+import com.gx.service.SalaryService;
 import com.gx.service.TestService;
 
 import java.util.List;
@@ -20,18 +16,22 @@ import com.gx.domain.*;
 
 @Controller
 @RequestMapping("/")
-public class SimulateController {
+public class SalaryController {
+	
+//	@Autowired
+//	private SalaryService salaryService;
 	
 	/*
-	*拦截/simulate路由
+	*拦截/salaryAdminister路由
 	* @return 返回jsp页面的名称
 	*/
-	@RequestMapping("/simulate")
+	@RequestMapping("/salaryAdminister")
 	public String test()
 	{
-		return "simulate";
+		return "salaryAdminister";
 	}
 	
-//	编写打卡机模拟信息提交的路由
+	
+//	编写工资管理控制层代码
 	
 }

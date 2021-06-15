@@ -1,3 +1,9 @@
+/*
+ * StaffMapper.java
+ * author: vrerain
+ * Date: 2021/6/15
+ * explation: dao接口
+*/
 package com.gx.dao;
 
 import com.gx.domain.*;

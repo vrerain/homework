@@ -1,11 +1,6 @@
-/*
- * SimulateController.java
- * author: vrerain
- * Date: 2021/6/15
- * explation: 控制层
-*/
 package com.gx.controller;
 
+import com.gx.service.AttendanceService;
 import com.gx.service.TestService;
 
 import java.util.List;
@@ -20,18 +15,22 @@ import com.gx.domain.*;
 
 @Controller
 @RequestMapping("/")
-public class SimulateController {
+public class AttendanceController {
+	
+//	@Autowired
+//	private AttendanceService attendanceService;
 	
 	/*
-	*拦截/simulate路由
+	*拦截/attendanceCount路由
 	* @return 返回jsp页面的名称
 	*/
-	@RequestMapping("/simulate")
+	@RequestMapping("/attendanceCount")
 	public String test()
 	{
-		return "simulate";
+		return "attendanceCount";
 	}
 	
-//	编写打卡机模拟信息提交的路由
+	
+//	编写考勤管理控制层代码
 	
 }

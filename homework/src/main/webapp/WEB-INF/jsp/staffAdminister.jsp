@@ -6,6 +6,12 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人事管理</title>
+<%@ page import="com.gx.domain.*" %>
+<%
+User user = (User) request.getSession().getAttribute("user"); 
+String name = user.getName();
+%>
 
 <!-- 导入easyui的资源文件 -->
         <script type="text/javascript" src="static/easyui/jquery.min.js"></script>
@@ -106,11 +112,11 @@
         <sapn>
             <h1>导航</h1>
         </sapn>
-        <span><a href="#" style="color:white;text-decoration:none;">首页</a></span>
+        <span><a href="index" style="color:white;text-decoration:none;">首页</a></span>
         <span style="background-color: #277de6">人事管理</span>
-        <span><a href="#" style="color:white;text-decoration:none;">考勤统计</a></span>
-        <span><a href="#" style="color:white;text-decoration:none;">工资管理</a></span>
-        <span><a href="#" style="color:white;text-decoration:none;">个人中心</a></span>
+        <span><a href="attendanceCount" style="color:white;text-decoration:none;">考勤统计</a></span>
+        <span><a href="salaryAdminister" style="color:white;text-decoration:none;">工资管理</a></span>
+        <span><a href="personalCenter" style="color:white;text-decoration:none;">个人中心</a></span>
     </div>
     <div id="header">
         <span id="function">首页</span>
@@ -118,7 +124,7 @@
         <span id="function">考勤统计</span>
         <span id="function">工资管理</span>
         <span id="function">个人中心</span>
-        <span style="border-right: 0px;">欢迎您，张三</span>
+        <span style="border-right: 0px;">欢迎您，<%=name %></span>
     </div>
     <div id="content">
         <span id="title">人事管理</span>
