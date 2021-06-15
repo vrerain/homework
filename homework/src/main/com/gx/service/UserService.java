@@ -14,4 +14,5 @@ public interface UserService {
 
     public void insertUser(User user);
     public User userLogin(String account);
+    public void modifyPassword(String account, String password);
 }

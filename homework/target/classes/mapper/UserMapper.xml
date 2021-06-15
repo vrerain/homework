@@ -15,5 +15,11 @@
 		(account, name, password, serialNumber )
 		VALUES ( #{account}, #{name}, #{password}, #{serialNumber})
     </insert>
+    
+    <update id="modifyPassword" parameterType="String">
+        update Users
+        set password = #{password}
+        where account = #{account}
+    </update>
 
 </mapper>

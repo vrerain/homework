@@ -15,4 +15,5 @@ public interface UserMapper {
 
     public void insertUser(User user);
     public User userLogin(String account);
+    public void modifyPassword(@Param("account") String account, @Param("password") String password);
 }

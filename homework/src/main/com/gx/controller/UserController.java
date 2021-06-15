@@ -50,6 +50,29 @@ public class UserController {
     public String personalCenter() {
         return "personalCenter";
     }
+    
+    
+    /*
+	*拦截/saveStaffInformation路由，保存新添加员工的信息
+	* @return 返回保存成功与否
+	*/
+	@RequestMapping("/modifyPassword")
+	@ResponseBody
+	public Map<String, Object> modifyPassword(String password, HttpServletRequest req) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		User user = (User) req.getSession().getAttribute("user"); 
+		String account = user.getAccount();
+		try {
+			userService.modifyPassword(account, password);
+			result.put("success", true);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", false);
+			result.put("msg", e.getMessage());
+		}
+		
+		return result;
+	}
 
 
 

@@ -33,5 +33,10 @@ public class UserServiceImpl implements UserService {
     public User userLogin(String account) {
         return userMapper.userLogin(account);
     }
+    
+    @Override
+    public void modifyPassword(String account, String password) {
+    	userMapper.modifyPassword(account, password);
+    }
 }
 
