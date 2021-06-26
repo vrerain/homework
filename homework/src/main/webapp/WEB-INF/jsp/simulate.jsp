@@ -83,8 +83,7 @@
     <div class="body">
         <form action="/uploadAttendance" method="POST" class="form" id="form1" name="form1">
             <input type="text" placeholder="员工ID" class="input" name="number" />
-            <input type="text" placeholder="员工姓名" class="input" name="name" />
-            <select class="input" style="width: 430px;">
+            <select class="input" name="machineID" style="width: 430px;">
                 <option value ="1">1号机</option>
                 <option value ="2">2号机</option>
                 <option value="3">3号机</option>
@@ -102,5 +101,9 @@
             <input type="submit" class="btn" value="打卡" />
         </form>
     </div>
+    
+    <script type="text/javascript">
+    
+    </script>
 </body>
 </html>

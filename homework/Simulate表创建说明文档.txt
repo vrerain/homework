@@ -1,0 +1,21 @@
+创建Simulate表，用于存储考勤信息
+其中number:员工ID
+machineID:打卡机编号
+attendanceDate: 打卡日期
+startTime ：打卡开始时间
+endTime ：打卡结束时间
+areaID ：区域ID
+minutes :工作时长(分钟)
+
+创建语句如下：
+create table Simulate  
+(  
+id int identity(10000,1) primary key,  
+number varchar(15),  
+machineID int, 
+attendanceDate varchar(15), 
+startTime varchar(15), 
+endTime varchar(15),
+areaID int, 
+minutes int
+)  
