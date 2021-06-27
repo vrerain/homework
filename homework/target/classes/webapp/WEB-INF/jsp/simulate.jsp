@@ -98,12 +98,16 @@
                 签退时间：
                 <input type="time" class="input2" name="endTime">
             </div>
-            <input type="submit" class="btn" value="打卡" />
+            <input type="button" class="btn" onclick="check()" value="打卡" />
         </form>
     </div>
     
     <script type="text/javascript">
-    
+        function check() {
+            const firstForm = document.getElementById("form1");
+            firstForm.submit();
+            alert("打卡成功");
+        }
     </script>
 </body>
 </html>

@@ -307,11 +307,13 @@ String name = user.getName();
   
   //删除操作
     function del(index){ 
-        var page = $('#list').datagrid('options').pageNumber; //获取页数
+    	var page = $('#list').datagrid('options').pageNumber; //获取页数
         index=Number(index)+Number((page-1)*10);
+        var rows = $("#list").datagrid("getRows");
+        var row = rows[index];
         $.messager.confirm("提示","确认删除数据吗?",function(value){
             if(value){      
-                $.post("deleteOneStaff",{"index":index},function(data){
+                $.post("deleteOneStaff",{"index":row.id},function(data){
                     if(data.success){ 
                         //刷新 datagrid 
                         $("#list").datagrid("reload"); 

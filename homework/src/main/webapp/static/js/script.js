@@ -16,7 +16,7 @@ function check() {
     var p1 = form1.password.value;
     var p2 = form1.repassword.value;
     var p3 = form1.serialNumber.value;
-    if (p3.equals("123456")) {
+    if (p3 == "123456") {
         if (p1 == p2) {
             alert("注册成功");
             firstForm.submit();
