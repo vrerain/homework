@@ -129,6 +129,8 @@ String name = user.getName();
     <div id="content">
         <span id="title">人事管理</span>
         <div id="lists"><table id="list"></table></div>
+        <div id="print" style="margin-top:20px;margin-left:40px;width: 50px;height: 25px;"><button style="display:block;width:100%;height:100%"><a href="/staffDownloadExcel" style="text-decoration: none;color:black">打印</a> </button></div>
+        
         
         
         <!-- 工具条 -->

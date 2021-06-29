@@ -57,8 +57,14 @@ where id = #{id}
 <!-- 根据ID和姓名搜索 -->
 <select id="staffConditionalSearch" parameterType="String" resultType="com.gx.domain.Staff">
     select * from Staff
-    where number like '%'+ #{number} + '%' and name like '%'+ #{name} + '%'
+    where number like concat('%', #{number}, '%') and name like concat('%', #{name}, '%')
     order by id     
+</select>
+
+<!-- 根据ID搜索姓名 -->
+<select id="findNameByNumber" parameterType="String" resultType="String">
+    select name from Staff
+    where number = #{number}   
 </select>
 
 </mapper>

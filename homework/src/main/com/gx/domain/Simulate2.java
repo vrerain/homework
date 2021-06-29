@@ -1,9 +1,9 @@
 package com.gx.domain;
 
-
-public class Simulate {
-	private Integer id;
+public class Simulate2 {
+	
 	private String number;
+	private String name;
 	private Integer machineID;
 	private String attendanceDate;
 	private String startTime;
@@ -11,11 +11,15 @@ public class Simulate {
 	private Integer areaID;
 	private Integer minutes;
 	
-	public Simulate() {}
 	
-	public Simulate(String number, Integer machineID, String attendanceDate, String startTime, String endTime, Integer areaID,
-			Integer minutes) {
+	
+	public Simulate2() {
+	}
+	public Simulate2(String number, String name, Integer machineID, String attendanceDate, String startTime,
+			String endTime, Integer areaID, Integer minutes) {
+		super();
 		this.number = number;
+		this.name = name;
 		this.machineID = machineID;
 		this.attendanceDate = attendanceDate;
 		this.startTime = startTime;
@@ -23,18 +27,17 @@ public class Simulate {
 		this.areaID = areaID;
 		this.minutes = minutes;
 	}
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getNumber() {
 		return number;
 	}
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Integer getMachineID() {
 		return machineID;
@@ -42,10 +45,10 @@ public class Simulate {
 	public void setMachineID(Integer machineID) {
 		this.machineID = machineID;
 	}
-	public String getattendanceDate() {
+	public String getAttendanceDate() {
 		return attendanceDate;
 	}
-	public void setattendanceDate(String attendanceDate) {
+	public void setAttendanceDate(String attendanceDate) {
 		this.attendanceDate = attendanceDate;
 	}
 	public String getStartTime() {

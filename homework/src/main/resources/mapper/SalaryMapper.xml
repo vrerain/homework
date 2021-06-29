@@ -5,6 +5,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 该文件编写 mybatis 中的 mapper 接口里面的方法提供对应的 sql 语句 -->
 <mapper namespace="com.gx.dao.SalaryMapper">
 
-<!-- 编写工资管理sql代码 -->
+<!-- 查询所有数据 -->
+<select id="findAll" resultType="com.gx.domain.Simulate">
+SELECT * FROM Simulate
+order by id
+</select>
+
+<!-- 根据 id 查询对象 -->
+<select id="findSalaryById" parameterType="int" resultType="com.gx.domain.Simulate">
+select * from Simulate
+where id = #{id}
+</select>
+
+<!-- 根据ID搜索 -->
+<select id="salaryConditionalSearch" parameterType="String" resultType="com.gx.domain.Simulate">
+    select * from Simulate
+    where number like concat('%', #{number}, '%') and substring(attendanceDate,6,2) like concat('%', #{month})
+    order by id     
+</select>
 
 </mapper>

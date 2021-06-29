@@ -7,7 +7,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>工资管理</title>
-
 <%@ page import="com.gx.domain.*" %>
 <%
 User user = (User) request.getSession().getAttribute("user"); 
@@ -76,16 +75,78 @@ String name = user.getName();
         #function:hover {
             background: #8f949a;
         }
-        
         #content {
             float:left;
             display:block;
             width:1275px;
             height:710px;
         }
+        #content #title{
+            display: block;
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 26px;
+            margin-top: 75px;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        #lists {
+            display:block;
+            width:1000px;
+            margin-left: 40px;
+            margin-top: 35px;
+        }
+        
+        .p {
+            font-size: 18px;
+            text-align: center;
+            display: block;
+            float: left;
+            border: 1.5px solid grey;
+            width: 210px;
+            height: 37px;
+            line-height: 37px;
+            margin-top: 10px;
+        }
+        .p:active{
+           background-color: #277de6; 
+        }
+        .table_p{
+            font-size: 30px;
+            width:850px;
+            text-align:center;
+            border-width:2px;
+            border-style:solid;
+            margin-top: 160px;
+            margin-left: 250px;
+            color:grey;
+        }
+        .th_p{
+            height: 100px;
+            border-width:3px;
+            border-style:solid;
+            max-width: 100px;
+            color:grey;
+        }
+        .td_p{
+            height: 80px;
+            border-width:3px;
+            border-style:solid;
+            max-width: 100px;
+            color:grey;
+        }
+        .salary{
+            left:620px;
+            position:absolute;
+            top:130px;
+            font-size:30px;
+        }
     </style>
 </head>
 <body>
+    </div>
     <div id="sidebar">
         <sapn>
             <h1>导航</h1>
@@ -105,7 +166,259 @@ String name = user.getName();
         <span style="border-right: 0px;">欢迎您，<%=name %></span>
     </div>
     <div id="content">
-        <!-- 从这里编写工资管理页面内容-->
+        <span><a id="choice1" href="salaryAdminister" class="p" style="color:grey;text-decoration:none;background-color: rgb(222 232 244)">计薪规则</a></span>
+        <span><a id="choice2" href="javascript:void(0);" onclick="hide_table1()" class="p" style="color:grey;text-decoration:none;">工资明细</a></span>
+        <span><a id="choice3" href="javascript:void(0);" onclick="hide_table2()" class="p" style="color:grey;text-decoration:none;">月工资单</a></span>
+        
+        <span id="title">工资管理</span>
+        <div id="lists1" style="width:1000px;margin-left: 40px;margin-top: 35px;display:none"><table id="list1" style="width:1000px"></table></div>
+        <div id="lists2" style="width:1000px;margin-left: 40px;margin-top: 35px;display:none"><table id="list2" style="width:1000px"></table></div>
+        <div id="salary_col" class="salary">工资=∑区域i工作时长*区域i工作单价</div>
+        <div id="table">
+        <table class="table_p">
+        <tr>
+            <th class="th_p">工作区域</th>
+            <th class="th_p">工资单价(/小时)</th>
+        </tr>
+        <tr>
+            <td class="td_p">区域1</td>
+            <td class="td_p">100</td>
+        </tr>
+        <tr>
+            <td class="td_p">区域2</td>
+            <td class="td_p">120</td>
+        </tr>
+          <tr>
+            <td class="td_p">区域3</td>
+            <td class="td_p">150</td>
+        </tr>
+      </table>
+      </div>
+      <div id="tb1">
+            员工ID：<input id="s11" class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px">
+            月份：<input id="s12" class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px">
+            <button id="res1">重置</button>
+            <button id="sss1">搜索</button>
+      </div>
+      <div id="tb2">
+        员工ID：<input id="s21" class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px">
+        月份：<input id="s22" class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px">
+        <button id="res2">重置</button>
+        <button id="sss2">搜索</button>
+        </div>
     </div>
+    <script type="text/javascript">
+//界面隐藏
+    function hide_table1(){
+    	document.getElementById("choice1").style.backgroundColor="";
+    	document.getElementById("choice2").style.backgroundColor="rgb(222 232 244)";
+    	document.getElementById("choice3").style.backgroundColor="";
+        document.getElementById("salary_col").style.display="none";
+        document.getElementById("table").style.display="none";
+        document.getElementById("lists2").style.display="none";
+        document.getElementById("lists1").style.display="";
+    }
+    function hide_table2(){
+    	document.getElementById("choice1").style.backgroundColor="";
+        document.getElementById("choice2").style.backgroundColor="";
+        document.getElementById("choice3").style.backgroundColor="rgb(222 232 244)";
+        document.getElementById("salary_col").style.display="none";
+        document.getElementById("table").style.display="none";
+        document.getElementById("lists1").style.display="none";
+        document.getElementById("lists2").style.display="";
+    }
+//     搜索按钮
+    $("#sss1").click(function(){
+        var s1 = $("#s11").val();
+        var s2 = $("#s12").val();
+        search1(s1,s2);
+    });
+    $("#sss2").click(function(){
+        var s1 = $("#s21").val();
+        var s2 = $("#s22").val();
+        search2(s1,s2);
+    });
+//     重置按钮
+    $("#res1").click(function(){
+        $("#s11").textbox('reset');
+        $("#s21").textbox('reset');
+    });
+    $("#res2").click(function(){
+        $("#s21").textbox('reset');
+        $("#s22").textbox('reset');
+    });
+  
+//   实现按照number和month条件搜索功能
+    function search1(number,month) {
+        $(function f1(){
+            $("#list1").datagrid({
+                url:"salaryConditionalSearch",
+                queryParams:{number:number,month:month},
+                columns:[[
+                    {
+                        field:"id",
+                        title:"ID",
+                        width:100,
+                        checkbox:true
+                    },
+                    {
+                        field:"number",
+                        title:"员工ID",
+                        width:160
+                    },
+                    {
+                        field:"area1",
+                        title:"区域1工资(元)",
+                        width:200
+                    },
+                    {
+                        field:"area2",
+                        title:"区域2工资(元)",
+                        width:200
+                    },
+                    {
+                        field:"area3",
+                        title:"区域3工资(元)",
+                        width:200
+                    },
+                    {
+                        field:"areaSum",
+                        title:"总工资(元)",
+                        width:200
+                    }
+                ]],
+                pagination:true,
+                toolbar:"#tb1",
+                //单击行不选中
+                onClickRow: function (rowIndex, rowData) {
+                    $(this).datagrid('unselectRow', rowIndex);
+                },
+            });
+        });
+    }
+    $(function f1() {
+        $("#list1").datagrid({
+            //url:后台数据查询的地址
+            url: "/salaryInformation",
+            //columns：填充的列数据
+            //field:后台对象的属性
+            //tille:列标题
+            columns:[[
+                    {
+                        field:"id",
+                        title:"ID",
+                        width:100,
+                        checkbox:true
+                    },
+                    {
+                        field:"number",
+                        title:"员工ID",
+                        width:160
+                    },
+                    {
+                        field:"area1",
+                        title:"区域1工资",
+                        width:200
+                    },
+                    {
+                        field:"area2",
+                        title:"区域2工资",
+                        width:200
+                    },
+                    {
+                        field:"area3",
+                        title:"区域3工资",
+                        width:200
+                    },
+                    {
+                        field:"areaSum",
+                        title:"总工资",
+                        width:200
+                    }
+                ]],
+            pagination:true,
+            toolbar:"#tb1",
+            //单击行不选中
+            onClickRow: function (rowIndex, rowData) {
+                $(this).datagrid('unselectRow', rowIndex);
+            },
+        });
+    })
+    function search2(number,month) {
+        $(function f2(){
+            $("#list2").datagrid({
+                url:"salarySearch",
+                queryParams:{number:number,month:month},
+                columns:[[
+                    {
+                        field:"id",
+                        title:"ID",
+                        width:100,
+                        checkbox:true
+                    },
+                    {
+                        field:"number",
+                        title:"员工ID",
+                        width:300
+                    },
+                    {
+                        field:"hours",
+                        title:"小时",
+                        width:300
+                    },
+                    {
+                        field:"areaSum",
+                        title:"总工资",
+                        width:300
+                    }
+                ]],
+                pagination:true,
+                toolbar:"#tb2",
+                //单击行不选中
+                onClickRow: function (rowIndex, rowData) {
+                    $(this).datagrid('unselectRow', rowIndex);
+                },
+            });
+        });
+    }
+    $(function f2() {
+        $("#list2").datagrid({
+            //url:后台数据查询的地址
+            url: "/salaryInformation",
+            //columns：填充的列数据
+            //field:后台对象的属性
+            //tille:列标题
+            columns:[[
+                    {
+                        field:"id",
+                        title:"ID",
+                        width:100,
+                        checkbox:true
+                    },
+                    {
+                        field:"number",
+                        title:"员工ID",
+                        width:300
+                    },
+                    {
+                        field:"hours",
+                        title:"小时",
+                        width:300
+                    },
+                    {
+                        field:"areaSum",
+                        title:"总工资",
+                        width:300
+                    }
+                ]],
+            pagination:true,
+            toolbar:"#tb2",
+            //单击行不选中
+            onClickRow: function (rowIndex, rowData) {
+                $(this).datagrid('unselectRow', rowIndex);
+            },
+        });
+    })
+    </script>
 </body>
 </html>

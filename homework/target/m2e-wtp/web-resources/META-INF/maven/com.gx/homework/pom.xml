@@ -125,6 +125,12 @@
       <version>8.4.1.jre11</version>
       <scope>runtime</scope>
     </dependency>
+    <!-- mysql-->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.23</version>
+      </dependency>
     <!--jdbc连接池  -->
     <dependency>
         <groupId>commons-dbcp</groupId>
@@ -248,6 +254,11 @@
         <artifactId>jsqlparser</artifactId>
         <version>3.1</version>
     </dependency>
+    <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>4.0.0</version>
+</dependency>
     <dependency>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper</artifactId>

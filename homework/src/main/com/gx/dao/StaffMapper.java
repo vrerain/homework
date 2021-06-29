@@ -19,4 +19,5 @@ public interface StaffMapper {
 	public void deleteOneStaff(Integer id);
 	public void deleteManyStaffs(Integer[] id);
 	public List<Staff> staffConditionalSearch(@Param("number") String number, @Param("name") String name);
+	public String findNameByNumber(String Number);
 }

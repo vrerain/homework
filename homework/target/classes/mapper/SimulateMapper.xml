@@ -11,4 +11,16 @@ INSERT INTO Simulate (number, machineID, attendanceDate, startTime, endTime, are
 VALUES (#{number}, #{machineID}, #{attendanceDate}, #{startTime}, #{endTime}, #{areaID}, #{minutes})
 </insert>
 
+<!-- 查询所有数据 -->
+<select id="findAll" resultType="com.gx.domain.Simulate">
+SELECT id, number, machineID, attendanceDate, startTime, endTime, areaID, minutes FROM Simulate
+order by attendanceDate desc, startTime desc
+</select>
+
+<!-- 根据用户ID查询数据 -->
+<select id="findByNumber" parameterType="String" resultType="com.gx.domain.Simulate">
+SELECT id, number, machineID, attendanceDate, startTime, endTime, areaID, minutes FROM Simulate
+WHERE number like concat('%', #{number}, '%')
+</select>
+
 </mapper>
